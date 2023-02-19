@@ -29,14 +29,12 @@ public:
 
 protected:
 	T		*container; // x
-	size_t	size;
-	size_t	capacity;
+	size_t	size; // x
+	size_t	capacity; // x
 
 	pointer										__begin;
 	pointer										__end;
 // iterator ?
-//	pointer       								  __begin_;
-//     pointer                                         __end_;
 //     __compressed_pair<pointer, allocator_type> __end_cap_;
 
 public:
@@ -49,22 +47,22 @@ public:
 	vector(const vector& other);
 	~vector();
 
-	vector&		operator=(const vector& other);
-	void		assign(size_type count, const T& value);
+	vector&					operator=(const vector& other);
+	void					assign(size_type count, const T& value);
 	template< class InputIt >
-	void		assign(InputIt first, InputIt last);
+	void					assign(InputIt first, InputIt last);
 
 // ======= element access
-	T&				at(size_type pos);
-	const T&		at(size_type pos) const;
-	T&				operator[](size_type pos);
-	const T&		operator[](size_type pos) const;
-	T&				front();
-	const T&		front() const;
-	T&				back();
-	const T&		back() const;
-	T*				data();
-	const T*		data() const;
+	T&						at(size_type pos);
+	const T&				at(size_type pos) const;
+	T&						operator[](size_type pos);
+	const T&				operator[](size_type pos) const;
+	T&						front();
+	const T&				front() const;
+	T&						back();
+	const T&				back() const;
+	T*						data();
+	const T*				data() const;
 
 // ======= iterators
 	iterator				begin();
@@ -77,41 +75,41 @@ public:
 	const_reverse_iterator	rend() const;
 
 // ======= capacity
-	bool		empty() const;
-	size_type	size() const;
-	size_type	max_size() const;
-	void		reserve(size_type new_cap);
-	size_type	capacity() const;
+	bool					empty() const;
+	size_type				size() const;
+	size_type				max_size() const;
+	void					reserve(size_type new_cap);
+	size_type				capacity() const;
 
 // ======= modifiers
-	void		clear();
-	iterator	insert(const_iterator pos, const T& value);
-	iterator	insert(const_iterator pos, size_type count, const T& value);
+	void					clear();
+	iterator				insert(const_iterator pos, const T& value);
+	iterator				insert(const_iterator pos, size_type count, const T& value);
 	template<class InputIt>
-	iterator	insert(const_iterator pos, InputIt first, InputIt last);
-	iterator	erase(iterator pos);
-	iterator	erase(iterator first, iterator last);
-	void		push_back(const T& value);
-	void		pop_back();
-	void		resize(size_type count, T value = T());
-	void		swap(vector& other);
+	iterator				insert(const_iterator pos, InputIt first, InputIt last);
+	iterator				erase(iterator pos);
+	iterator				erase(iterator first, iterator last);
+	void					push_back(const T& value);
+	void					pop_back();
+	void					resize(size_type count, T value = T());
+	void					swap(vector& other);
 };
 
 // ======= non-member functions
 template<class T, class Alloc>
-bool	operator==(const std::vector<T, Alloc>& lhs, const std::vector<T, Alloc>& rhs);
+bool						operator==(const std::vector<T, Alloc>& lhs, const std::vector<T, Alloc>& rhs);
 template<class T, class Alloc>
-bool	operator!=(const std::vector<T, Alloc>& lhs, const std::vector<T, Alloc>& rhs);
+bool						operator!=(const std::vector<T, Alloc>& lhs, const std::vector<T, Alloc>& rhs);
 template<class T, class Alloc>
-bool	operator<(const std::vector<T, Alloc>& lhs, const std::vector<T, Alloc>& rhs);
+bool						operator<(const std::vector<T, Alloc>& lhs, const std::vector<T, Alloc>& rhs);
 template<class T, class Alloc>
-bool	operator<=(const std::vector<T, Alloc>& lhs, const std::vector<T, Alloc>& rhs);
+bool						operator<=(const std::vector<T, Alloc>& lhs, const std::vector<T, Alloc>& rhs);
 template<class T, class Alloc>
-bool	operator>(const std::vector<T, Alloc>& lhs, const std::vector<T, Alloc>& rhs);
+bool						operator>(const std::vector<T, Alloc>& lhs, const std::vector<T, Alloc>& rhs);
 template<class T, class Alloc>
-bool	operator>=(const std::vector<T, Alloc>& lhs, const std::vector<T, Alloc>& rhs);
+bool						operator>=(const std::vector<T, Alloc>& lhs, const std::vector<T, Alloc>& rhs);
 template<class T, class Alloc>
-void	swap(std::vector<T, Alloc>& lhs, std::vector<T, Alloc>& rhs);
+void						swap(std::vector<T, Alloc>& lhs, std::vector<T, Alloc>& rhs);
 
 
 # include "vector.tpp"
